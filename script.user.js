@@ -91,9 +91,9 @@
 	const NOTIFICATIONS_SELECTOR = "article";
 	const VERIFIED_SELECTOR = 'a[href="/i/verified-choose"]';
 	const TRANSLATE_POST_SELECTOR = 'div[role="button"] span';
-	const HEADER_SELECTOR = 'main h2'
-	const REPLY_SELECTOR = 'div.public-DraftEditorPlaceholder-root'
-	const MENU_SELECTOR = 'div#layers'
+	const HEADER_SELECTOR = "main h2";
+	const REPLY_SELECTOR = "div.public-DraftEditorPlaceholder-root";
+	const MENU_SELECTOR = "div#layers";
 
 	const createStyleMaker =
 		(selector) =>
@@ -180,31 +180,31 @@
 		}
 
 		if (location.pathname.match(/\/\w*status\/\d*/g)) {
-			console.log("matched")
-			const ANALYSIS_SELECTOR = 'a[href="' + location.pathname + '/analytics' + '"]';
+			// console.log("matched")
+			const ANALYSIS_SELECTOR = `a[href="${location.pathname}/analytics` + `"]`;
 			waitForElements(TRANSLATE_POST_SELECTOR).then(([el]) => {
-				console.log(el.innerHTML)
-				el.innerHTML = el.innerHTML.replaceAll('post', 'tweet');
-			})
+				// console.log(el.innerHTML)
+				el.innerHTML = el.innerHTML.replaceAll("post", "tweet");
+			});
 			waitForElements(HEADER_SELECTOR).then(([el]) => {
-				el.innerHTML = el.innerHTML.replaceAll('Post', 'Tweet')
-			})
+				el.innerHTML = el.innerHTML.replaceAll("Post", "Tweet");
+			});
 			waitForElements(MENU_SELECTOR).then(([el]) => {
-				el.innerHTML = el.innerHTML.replaceAll('Post', 'Tweet')
-			})
+				el.innerHTML = el.innerHTML.replaceAll("Post", "Tweet");
+			});
 			waitForElements(ANALYSIS_SELECTOR).then(([anEl]) => {
-				anEl.innerHTML = anEl.innerHTML.replaceAll('post', 'tweet');
-			})
+				anEl.innerHTML = anEl.innerHTML.replaceAll("post", "tweet");
+			});
 			waitForElements(REPLY_SELECTOR).then(([anEl]) => {
-				anEl.innerHTML = anEl.innerHTML.replaceAll('Post', 'Tweet');
-			})
+				anEl.innerHTML = anEl.innerHTML.replaceAll("Post", "Tweet");
+			});
 		}
 
-		if(location.pathname === '/compose/tweet') {
+		if (location.pathname === "/compose/tweet") {
 			waitForElements(TRANSLATE_POST_SELECTOR).then(([el]) => {
-				console.log(el.innerHTML)
-				el.innerHTML = el.innerHTML.replaceAll('Post', 'Tweet');
-			})
+				// console.log(el.innerHTML)
+				el.innerHTML = el.innerHTML.replaceAll("Post", "Tweet");
+			});
 		}
 	}
 	initChangers();
